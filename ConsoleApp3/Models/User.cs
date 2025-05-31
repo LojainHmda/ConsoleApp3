@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
-namespace ConsoleApp3.ConsoleApp3
+
+namespace ConsoleApp3.Models
 {
-    internal class User
+    public class User
+
     {
+
+
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public int Id { get; set; }
-        public ICollection<Blog> Blogs { get; set; }
 
+       public List<Blog> Blogs { get; set; }
+         
     }
 }

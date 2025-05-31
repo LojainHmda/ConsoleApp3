@@ -1,22 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using ConsoleApp3.ConsoleApp3;
+using ConsoleApp3.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ConsoleApp2.Data
+namespace ConsoleApp3.Data
 {
-    internal class ApplicationDpContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
+
         public DbSet<User> Users { get; set; }
         public DbSet<Blog> Blogs { get; set; }
 
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
         {
-            optionsBuilder.UseSqlServer("Server=;Database=fakestore;Trusted_conniction=True;TrustServerCertificate=True");
+
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Server=LOJAIN\\MSSQLSERVER01;Database=fakestore;Trusted_Connection=True;TrustServerCertificate=True");
         }
     }
 }
